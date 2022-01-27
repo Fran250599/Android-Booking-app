@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Dao
-public interface HotelDao {
+public interface HotelsDao {
     @Query("SELECT * FROM hotel")
     List<Hotel> getAll();
 

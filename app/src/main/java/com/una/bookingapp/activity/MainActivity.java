@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.una.bookingapp.R;
-
+import com.una.bookingapp.controller.PrincipalController;
 
 
 //This will be a login screen
@@ -27,13 +27,10 @@ public class MainActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener( (View v) -> {
                 Intent intent = new Intent(this, MainPageActivity.class);
+
+                PrincipalController.getInstance(getApplication());
                 startActivity(intent);
         });
 
     }
-
-
-
-
-
 }

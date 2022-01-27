@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Hotel {
 
-    public Hotel(int id, String name, String state, String address) {
-        this.id = id;
+    public Hotel(String name, String state, String address) {
+        this.id = 0;
         this.name = name;
         this.state = state;
         this.address = address;
