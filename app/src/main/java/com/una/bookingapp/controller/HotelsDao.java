@@ -1,9 +1,11 @@
-package com.una.bookingapp.model;
+package com.una.bookingapp.controller;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.una.bookingapp.model.Hotel;
 
 import java.util.List;
 

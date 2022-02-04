@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.una.bookingapp.R;
-import com.una.bookingapp.controller.PrincipalController;
+import com.una.bookingapp.controller.HotelController;
+import com.una.bookingapp.controller.UserController;
+import com.una.bookingapp.model.User;
 
 
 //This will be a login screen
@@ -23,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
-    public void init(){
+    public void init() {
         Button loginButton = findViewById(R.id.loginButton);
-        loginButton.setOnClickListener( (View v) -> {
-                Intent intent = new Intent(this, MainPageActivity.class);
+        loginButton.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, MainPageActivity.class);
 
-                PrincipalController.getInstance(getApplication());
-                startActivity(intent);
+            HotelController.getInstance(getApplication());
+            startActivity(intent);
         });
 
     }
