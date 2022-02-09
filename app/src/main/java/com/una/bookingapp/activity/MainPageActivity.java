@@ -26,8 +26,6 @@ public class MainPageActivity extends AppCompatActivity {
     }
 
     public void init(){
-        //List<Hotel> hotels = HotelController.getInstance(getApplication()).getHotels();
-
 
 
 

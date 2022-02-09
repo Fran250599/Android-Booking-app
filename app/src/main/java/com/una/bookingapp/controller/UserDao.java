@@ -16,6 +16,8 @@ public interface UserDao {
     @Insert
     void insert(User ... users);
 
+    @Query("SELECT * from User where id=:id")
+    User getUser(int id);
 
 
 }

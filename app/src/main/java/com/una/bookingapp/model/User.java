@@ -9,8 +9,8 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
 
-    public String password;
-    public String username;
+    private String password;
+    private String username;
 
     public User(String username, String password) {
 
