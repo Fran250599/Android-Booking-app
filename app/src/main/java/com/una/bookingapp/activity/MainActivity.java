@@ -23,41 +23,64 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         init();
     }
 
     public void init() {
         loginButton = findViewById(R.id.loginButton);
+        registerButton = findViewById(R.id.registerButton);
         username = findViewById(R.id.editTextUsername);
         password = findViewById(R.id.editTextPassword);
 
+        setLoginButton();
+        setRegisterButton();
+    }
+
+    public void setLoginButton() {
         loginButton.setOnClickListener((View v) -> {
 
             String usernameStr = username.getText().toString();
             String passwordStr = password.getText().toString();
 
-            new Thread(()->{
-
+            new Thread(() -> {
+                //Will get the whole list of Users to verify the input
                 List<User> users = UserController.getInstance(getApplication()).getUsers();
 
-                for(User user : users){
-
-                    if(user.getUsername().equals(usernameStr) && user.getPassword().equals(passwordStr)){
-                        Intent intent = new Intent(this, MainPageActivity.class);
-
-                        HotelController.getInstance(getApplication());
+                //Searching for credentials
+                for (User user : users) {
+                    //If there is any coincidence will enter the admin system
+                    if (usernameStr.equals("admin") && passwordStr.equals("admin")) {
+                        Intent intent = new Intent(this, MainAdminActivity.class);
                         startActivity(intent);
+                    }
+                    //If there is any coincidence will enter a user system
+                    else if (user.getUsername().equals(usernameStr) && user.getPassword().equals(passwordStr)) {
+
+                        Intent intent = new Intent(this, MainUserActivity.class);
+                        startActivity(intent);
+                    } else {
+                        runOnUiThread(() -> {
+                            username.setError("Invalido");
+                            password.setError("Invalido");
+                        });
                     }
                 }
             }).start();
-            //username.setError("Invalido");
-            //password.setError("Invalido");
+
+
+        });
+    }
+
+    public void setRegisterButton() {
+        registerButton.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, RegistrationActivity.class);
+            startActivity(intent);
         });
     }
 
     Button loginButton;
+    Button registerButton;
     EditText username;
     EditText password;
+
 }

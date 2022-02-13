@@ -3,4 +3,9 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="ingresar">Ingresar</string>
+    <string name="nuevo_usuario">Nuevo usuario</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="usernameRegistration">Username</string>
+    <string name="passwordRegistration">Password</string>
+    <string name="registerButtonRegistration">Register</string>
 </resources>

@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookingApp">
         <activity
+            android:name=".activity.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.NewHotelForm"
             android:exported="false" />
         <activity
-            android:name=".activity.MainPageActivity"
+            android:name=".activity.MainAdminActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"

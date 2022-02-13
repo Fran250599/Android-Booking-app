@@ -10,17 +10,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.una.bookingapp.R;
-import com.una.bookingapp.controller.HotelController;
-import com.una.bookingapp.model.Hotel;
 
-import java.util.List;
-
-public class MainPageActivity extends AppCompatActivity {
+public class MainAdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+        setContentView(R.layout.activity_admin_page);
 
         init();
     }
