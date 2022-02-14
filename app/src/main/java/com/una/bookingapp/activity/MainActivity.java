@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+
     public void init() {
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);

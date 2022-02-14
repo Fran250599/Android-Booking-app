@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -46,19 +48,31 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     User user = new User(usernameStr, passwordStr);
 
-                    /*new Thread( () -> {
-                        UserController.getInstance(getApplication()).addUser(user);
+                    InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+
+                    new Thread( () -> {
+
+                            try {
+                                long n = System.currentTimeMillis();
+                                synchronized (this) {
+
+                                    Snackbar snackbar = Snackbar.make(v, "Nuevo usuario agregado", Snackbar.LENGTH_SHORT);
+                                    snackbar.show();
+                                    System.out.println("waiting...");
+                                    this.wait(3000); // change this to wait less, more, or indefinitely
+
+                                    Intent intent = new Intent(this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+                                System.out.println("waited for " + (System.currentTimeMillis() - n) + "ms");
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                     }).start();
-*/
-
                 }
-
-
             });
-
-
         });
-
     }
 
     EditText username;
