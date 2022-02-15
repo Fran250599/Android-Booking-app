@@ -70,25 +70,19 @@ public class RegistrationActivity extends AppCompatActivity {
                                 boolean validUser= true;
 
                                 for(User auxUser : users){
-
                                     if(auxUser.getUsername().equals(user.getUsername())){
-
                                         runOnUiThread( () -> {
                                             username.setError("Nombre de usuario ya existente. Por favor intente con otro.");
                                         });
                                         validUser = false;
                                     }
                                 }
-
                                 if(validUser == true){
-                                    //UserController.getInstance(getApplication()).addUser(user);
-
+                                    UserController.getInstance(getApplication()).addUser(user);
                                     Snackbar snackbar = Snackbar.make(v, "Nuevo usuario agregado", Snackbar.LENGTH_SHORT);
                                     snackbar.show();
-
                                     System.out.println("waiting...");
                                     this.wait(3000); // change this to wait less, more, or indefinitely
-
                                     Intent intent = new Intent(this, MainActivity.class);
                                     startActivity(intent);
                                 }

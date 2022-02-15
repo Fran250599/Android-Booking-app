@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
     }
-
-
     public void init() {
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
@@ -67,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }).start();
-
-
         });
     }
 
